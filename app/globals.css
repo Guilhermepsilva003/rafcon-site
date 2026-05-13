@@ -17,12 +17,45 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: var(--background);
   color: var(--text-dark);
   font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
   font-family: var(--font-heading), serif;
+}
+
+/* ─── Responsivo ─────────────────────────────── */
+@media (max-width: 900px) {
+  /* Navbar */
+  .desktop-menu { display: none !important; }
+  .desktop-cta  { display: none !important; }
+  .mobile-btn   { display: block !important; }
+
+  /* Hero */
+  .hero-layout        { grid-template-columns: 1fr !important; }
+  .hero-image-col     { display: none !important; }
+  .hero-stats-col     { display: none !important; }
+  .hero-stats-mobile  { display: flex !important; }
+
+  /* Sobre */
+  .sobre-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+
+  /* Serviços */
+  .servicos-grid { grid-template-columns: 1fr !important; }
+
+  /* Depoimentos */
+  .depoimentos-desktop { display: none !important; }
+  .depoimentos-mobile  { display: block !important; }
+
+  /* Contato */
+  .contato-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .contato-mapa { height: 280px !important; }
 }
