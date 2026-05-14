@@ -1,3 +1,5 @@
+// Hero.tsx
+
 const WHATSAPP = "https://wa.me/5581988766461";
 const SUPERLOGICA = "https://superlogica.net/clients/?licenca=rafcon";
 
@@ -27,7 +29,8 @@ export default function Hero() {
           right: 0,
           width: "55%",
           height: "100%",
-          background: "radial-gradient(ellipse at top right, rgba(204,154,97,0.07) 0%, transparent 65%)",
+          background:
+            "radial-gradient(ellipse at top right, rgba(204,154,97,0.07) 0%, transparent 65%)",
           pointerEvents: "none",
         }}
       />
@@ -36,11 +39,10 @@ export default function Hero() {
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "120px 24px 80px",
+          padding: "140px 24px 80px",
           width: "100%",
         }}
       >
-        {/* Layout principal: texto + imagem + stats verticais */}
         <div
           style={{
             display: "grid",
@@ -50,7 +52,7 @@ export default function Hero() {
           }}
           className="hero-layout"
         >
-          {/* Coluna 1 — Texto */}
+          {/* Texto */}
           <div style={{ maxWidth: "520px" }}>
             <h1
               style={{
@@ -77,9 +79,10 @@ export default function Hero() {
                 marginBottom: "40px",
               }}
             >
-              Atuante no mercado desde 2019, a Rafcon cuida da gestão financeira, operacional e
-              documental de mais de 50 condomínios em Recife e região
-              metropolitana com transparência e atendimento humano.
+              Há mais de 7 anos no mercado, a Rafcon cuida da gestão
+              financeira, operacional e documental de mais de 50 condomínios em
+              Recife e região metropolitana com transparência e atendimento
+              humano.
             </p>
 
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
@@ -99,6 +102,7 @@ export default function Hero() {
               >
                 Entre em contato
               </a>
+
               <a
                 href={SUPERLOGICA}
                 target="_blank"
@@ -119,7 +123,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Coluna 2 — Imagem */}
+          {/* Imagem */}
           <div
             className="hero-image-col"
             style={{
@@ -142,13 +146,13 @@ export default function Hero() {
             />
           </div>
 
-          {/* Coluna 3 — Stats verticais */}
+          {/* Stats */}
           <div
             className="hero-stats-col"
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "12px",
+              gap: "14px",
               flexShrink: 0,
             }}
           >
@@ -158,27 +162,28 @@ export default function Hero() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.03)",
                   border: "1px solid rgba(204,154,97,0.2)",
-                  borderRadius: "12px",
-                  padding: "20px 24px",
+                  borderRadius: "14px",
+                  padding: "24px 28px",
                   textAlign: "center",
-                  width: "160px",
+                  width: "190px",
                 }}
               >
                 <div
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "28px",
+                    fontSize: "34px",
                     fontWeight: 700,
                     color: "var(--accent)",
                     lineHeight: 1,
-                    marginBottom: "6px",
+                    marginBottom: "8px",
                   }}
                 >
                   {item.numero}
                 </div>
+
                 <div
                   style={{
-                    fontSize: "11px",
+                    fontSize: "12px",
                     color: "rgba(245,242,238,0.55)",
                     lineHeight: 1.5,
                   }}
@@ -188,45 +193,6 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Stats mobile — aparece só em telas pequenas, horizontal */}
-        <div
-          className="hero-stats-mobile"
-          style={{
-            display: "none",
-            gap: "12px",
-            marginTop: "40px",
-          }}
-        >
-          {stats.map((item) => (
-            <div
-              key={item.label}
-              style={{
-                flex: 1,
-                backgroundColor: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(204,154,97,0.2)",
-                borderRadius: "10px",
-                padding: "16px 8px",
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "22px",
-                  fontWeight: 700,
-                  color: "var(--accent)",
-                  marginBottom: "4px",
-                }}
-              >
-                {item.numero}
-              </div>
-              <div style={{ fontSize: "10px", color: "rgba(245,242,238,0.55)", lineHeight: 1.4 }}>
-                {item.label}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

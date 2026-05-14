@@ -2,31 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const links = ["Inicio", "Sobre", "Servicos", "Contato"];
 const WHATSAPP = "https://wa.me/5581988766461";
-
-function LogoRafcon() {
-  return (
-    <svg
-      width="44"
-      height="38"
-      viewBox="0 0 44 38"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="Logo Rafcon"
-    >
-      <rect x="0" y="0" width="44" height="10" rx="2" fill="#CC9A61" />
-      <rect x="4" y="2" width="36" height="6" rx="1" fill="#152E4D" />
-
-      <rect x="0" y="14" width="44" height="10" rx="2" fill="#CC9A61" />
-      <rect x="4" y="16" width="36" height="6" rx="1" fill="#152E4D" />
-
-      <rect x="0" y="28" width="44" height="10" rx="2" fill="#CC9A61" />
-      <rect x="4" y="30" width="36" height="6" rx="1" fill="#152E4D" />
-    </svg>
-  );
-}
 
 export default function Navbar() {
   const [aberto, setAberto] = useState(false);
@@ -40,7 +19,8 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        borderBottom: "1px solid rgba(204,154,97,0.2)",
+        borderBottom: "1px solid rgba(204,154,97,0.14)",
+        backdropFilter: "blur(10px)",
       }}
     >
       <nav
@@ -48,51 +28,39 @@ export default function Navbar() {
           maxWidth: "1200px",
           margin: "0 auto",
           padding: "0 24px",
-          height: "72px",
+          height: "96px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
         }}
       >
+        {/* LOGO */}
         <Link
           href="/#inicio"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "14px",
             textDecoration: "none",
+            flexShrink: 0,
           }}
         >
-          <LogoRafcon />
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            <span
-              style={{
-                color: "var(--text-light)",
-                fontSize: "18px",
-                fontFamily: "var(--font-heading)",
-                fontWeight: 700,
-                letterSpacing: "2px",
-                lineHeight: 1,
-                textTransform: "uppercase",
-              }}
-            >
-              Rafcon
-            </span>
-            <span
-              style={{
-                color: "rgba(204,154,97,0.8)",
-                fontSize: "9px",
-                letterSpacing: "1.5px",
-                textTransform: "uppercase",
-                lineHeight: 1,
-                fontWeight: 500,
-              }}
-            >
-              Administradora de Condomínios
-            </span>
-          </div>
+          <Image
+  src="/logo-rafcon.png"
+  alt="Rafcon Administração e Contabilidade"
+  width={420}
+  height={140}
+  priority
+  style={{
+    width: "auto",
+    height: "110px",
+    objectFit: "contain",
+    transform: "scale(2.2)",
+    marginLeft: "35px",
+  }}
+/>
         </Link>
 
+        {/* MENU DESKTOP */}
         <ul
           className="desktop-menu"
           style={{
@@ -109,22 +77,35 @@ export default function Navbar() {
               <a
                 href={"#" + item.toLowerCase()}
                 style={{
-                  color: "rgba(245,242,238,0.7)",
+                  color: "rgba(245,242,238,0.72)",
                   textDecoration: "none",
                   fontSize: "14px",
                   letterSpacing: "0.3px",
                   padding: "8px 16px",
-                  borderRadius: "6px",
+                  borderRadius: "8px",
                   display: "block",
-                  transition: "background 0.2s, color 0.2s",
+                  transition: "0.2s",
+                  fontWeight: 500,
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(204,154,97,0.12)";
-                  (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)";
+                  (
+                    e.currentTarget as HTMLAnchorElement
+                  ).style.backgroundColor =
+                    "rgba(204,154,97,0.10)";
+
+                  (
+                    e.currentTarget as HTMLAnchorElement
+                  ).style.color = "var(--accent)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
-                  (e.currentTarget as HTMLAnchorElement).style.color = "rgba(245,242,238,0.7)";
+                  (
+                    e.currentTarget as HTMLAnchorElement
+                  ).style.backgroundColor = "transparent";
+
+                  (
+                    e.currentTarget as HTMLAnchorElement
+                  ).style.color =
+                    "rgba(245,242,238,0.72)";
                 }}
               >
                 {item}
@@ -133,6 +114,7 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* CTA */}
         <a
           href={WHATSAPP}
           target="_blank"
@@ -141,19 +123,27 @@ export default function Navbar() {
           style={{
             backgroundColor: "var(--accent)",
             color: "var(--primary)",
-            padding: "10px 20px",
-            borderRadius: "6px",
+            padding: "12px 22px",
+            borderRadius: "8px",
             textDecoration: "none",
             fontSize: "14px",
-            fontWeight: 600,
-            transition: "opacity 0.2s",
+            fontWeight: 700,
+            transition: "0.2s",
+            whiteSpace: "nowrap",
           }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "0.85"; }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.opacity =
+              "0.85";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.opacity =
+              "1";
+          }}
         >
           Falar no WhatsApp
         </a>
 
+        {/* MOBILE BUTTON */}
         <button
           onClick={() => setAberto(!aberto)}
           aria-label="Abrir menu"
@@ -166,18 +156,44 @@ export default function Navbar() {
             display: "none",
           }}
         >
-          <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "var(--accent)", marginBottom: "5px" }} />
-          <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "var(--accent)", marginBottom: "5px" }} />
-          <span style={{ display: "block", width: "22px", height: "2px", backgroundColor: "var(--accent)" }} />
+          <span
+            style={{
+              display: "block",
+              width: "22px",
+              height: "2px",
+              backgroundColor: "var(--accent)",
+              marginBottom: "5px",
+            }}
+          />
+
+          <span
+            style={{
+              display: "block",
+              width: "22px",
+              height: "2px",
+              backgroundColor: "var(--accent)",
+              marginBottom: "5px",
+            }}
+          />
+
+          <span
+            style={{
+              display: "block",
+              width: "22px",
+              height: "2px",
+              backgroundColor: "var(--accent)",
+            }}
+          />
         </button>
       </nav>
 
+      {/* MOBILE MENU */}
       {aberto && (
         <div
           style={{
             backgroundColor: "var(--primary)",
             padding: "16px 24px 24px",
-            borderTop: "1px solid rgba(204,154,97,0.15)",
+            borderTop: "1px solid rgba(204,154,97,0.12)",
           }}
         >
           {links.map((item) => (
@@ -190,13 +206,15 @@ export default function Navbar() {
                 color: "rgba(245,242,238,0.75)",
                 textDecoration: "none",
                 fontSize: "16px",
-                padding: "12px 0",
-                borderBottom: "1px solid rgba(204,154,97,0.1)",
+                padding: "14px 0",
+                borderBottom:
+                  "1px solid rgba(204,154,97,0.08)",
               }}
             >
               {item}
             </a>
           ))}
+
           <a
             href={WHATSAPP}
             target="_blank"
@@ -205,13 +223,13 @@ export default function Navbar() {
               display: "block",
               backgroundColor: "var(--accent)",
               color: "var(--primary)",
-              padding: "12px 20px",
-              borderRadius: "6px",
+              padding: "14px 20px",
+              borderRadius: "8px",
               textDecoration: "none",
               fontSize: "15px",
-              fontWeight: 600,
+              fontWeight: 700,
               textAlign: "center",
-              marginTop: "16px",
+              marginTop: "18px",
             }}
           >
             Falar no WhatsApp
