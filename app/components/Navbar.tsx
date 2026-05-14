@@ -53,53 +53,26 @@ export default function Navbar() {
           justifyContent: "space-between",
         }}
       >
-        {/* Logo */}
+        {/* Logo — apenas imagem, sem texto */}
         <a
           href="#inicio"
           onClick={(e) => handleNav(e, "#inicio")}
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "14px",
             textDecoration: "none",
             cursor: "pointer",
+            height: "56px",
           }}
         >
           <Image
             src="/logo-rafcon.PNG"
-            alt="Logo Rafcon"
-            width={48}
-            height={48}
-            style={{ objectFit: "contain" }}
+            alt="Rafcon Administração e Contabilidade"
+            width={180}
+            height={56}
+            style={{ objectFit: "contain", height: "56px", width: "auto" }}
             priority
           />
-          <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
-            <span
-              style={{
-                color: "#FFFFFF",
-                fontSize: "17px",
-                fontFamily: "var(--font-heading)",
-                fontWeight: 700,
-                letterSpacing: "3px",
-                lineHeight: 1,
-                textTransform: "uppercase",
-              }}
-            >
-              Rafcon
-            </span>
-            <span
-              style={{
-                color: "rgba(204,154,97,0.85)",
-                fontSize: "8.5px",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                lineHeight: 1,
-                fontWeight: 500,
-              }}
-            >
-              Administração &amp; Contabilidade
-            </span>
-          </div>
         </a>
 
         {/* Links desktop */}
