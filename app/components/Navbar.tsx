@@ -68,9 +68,9 @@ export default function Navbar() {
           <Image
             src="/logo-rafcon.PNG"
             alt="Rafcon Administração e Contabilidade"
-            width={180}
-            height={56}
-            style={{ objectFit: "contain", height: "56px", width: "auto" }}
+            width={320}
+            height={72}
+            style={{ objectFit: "contain", height: "250px", width: "auto" }}
             priority
           />
         </a>
